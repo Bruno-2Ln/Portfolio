@@ -30,9 +30,9 @@ let typewriter = new Typewriter(txtAnim, {
 typewriter
 .pauseFor(1800)
 .changeDelay(30)
-.typeString('Bonjour, je suis Bruno Delaine')
+.typeString('Bonjour, je suis Bruno Delaine,')
 .pauseFor(300)
-.typeString('<strong>, Développeur Full-Stack</strong> !')
+.typeString('<strong> développeur Full-Stack</strong> !')
 .pauseFor(1000)
 .deleteChars(12)
 .typeString('<span style="color: #27ae60;"> CSS</span> !')
