@@ -83,9 +83,10 @@ body {
 .cercle-portrait img {
     width: 100px;
     position: absolute;
-    top: 50%;
+    top: 41%;
     left: 50%;
     transform: translate(-50%,-50%);
+    border-radius: 35%;
 }
 
 .logo-cercle{
@@ -204,7 +205,7 @@ body {
 /*------------------- Accueil ------------------*/
 
 .accueil {
-    background: url(ressources/accueil.jpg);
+    background: url(ressources/acc.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -275,9 +276,16 @@ h1{
     cursor: pointer;
 }
 .media2 {
-    background: transparent;
+    background: #f1f1f1;
     border: 2px solid #333;
 }
+
+.media3 img{
+    position: relative;
+    bottom: -1px;
+    left: 2px;
+} 
+
 .icone-medias {
     width: 30px;
 }
