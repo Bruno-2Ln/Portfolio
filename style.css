@@ -953,7 +953,7 @@ h1{
     height: 100%;
     border: 2px solid black;
     background: white;
-    transition: transform 0.25s ease-in-out;
+    transition: transform 0.25s ease-in;
     position: relative;
     transform: translate(10px, -10px)
 }
@@ -961,10 +961,45 @@ h1{
 .avion {
     transform: rotate(-90deg);
 }
+/*
+.boule-ico-anim{
+    animation-name: fusee, pulse2;
+    animation-delay: 0, 0;
+    animation-duration: 5s, 1.3s;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards;
+    box-shadow: 0 0 0 0 rgb(196, 70, 31);
+}
+
+@keyframes pulse2 {
+    to {
+        box-shadow: 0 0 0 4px rgba(194, 140, 41, 0);
+    }
+}
+
+@keyframes fusee {
+    from {
+        transform: translate(0,0);
+
+    } 25% {
+        transform: translate(0,-237.5);
+        
+
+    } 50% {
+        transform: translate(0,-475.5);
+        
+    } 75% {
+        transform: translate(0,-713);
+
+    } to {
+        transform: translate(0,-950px) rotate(90deg);
+    }
+}*/
 
 .contenu-bloc:hover {
     transform: translate(0,0);
 }
+
 
 .bloc1 {
     background: #fb97a0;
