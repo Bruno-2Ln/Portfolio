@@ -10,7 +10,8 @@ html {
 
 body {
     font-family: 'Poppins', 'sans-serif';
-    background: #f1f1f1;
+    background: #ddddda;
+    background-image: linear-gradient(to bottom, #ddddda, #cac9c4);
 }
 
 .nav-gauche {
@@ -20,7 +21,7 @@ body {
     background: #333;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0px;
     border-right: 1px dashed #f1f1f1;
     z-index: 5;
     transition: all 0.2s ease-in-out;
