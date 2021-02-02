@@ -1065,3 +1065,56 @@ h1{
     }
 }
 
+/* ------- Section Parallax -------*/
+
+.section-parallax {
+    width: 100%;
+    height: 250px;
+    background: url(ressources/accueil.jpg) no-repeat right / cover fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px dashed #333;
+    border-bottom: 1px dashed #333;
+}
+.txt-par{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 50px;
+}
+.txt par:nth-child(1){
+    padding-left: 300px;
+}
+
+@media screen and (max-width: 1300px){
+
+    .txt-par {
+        font-size: 25px;
+        margin: 0 30px;
+    }
+    .txt-par:nth-child(1) {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width: 834px){
+
+    .section-parallax {
+        flex-direction: column;
+    }
+    .txt-par {
+        margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width: 680px){
+
+    .section-parallax {
+        flex-direction: column;
+    }
+    .txt-par {
+        font-size: 20px;
+        margin: 20px 0px;
+    }
+}
+
