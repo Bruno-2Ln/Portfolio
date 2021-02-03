@@ -1083,13 +1083,29 @@ h1{
     border-top: 1px dashed #333;
     border-bottom: 1px dashed #333;
 }
+
 .txt-par{
+    /*margin: 50px 50px;*/
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+}
+
+#proverbe {
+    /*padding-left: 300px;*/
+    width: 80%;
+    text-align: center;
     font-size: 30px;
     font-weight: bold;
-    margin: 0 50px;
+    margin: auto;
 }
-.txt par:nth-child(1){
-    padding-left: 300px;
+
+#auteur {
+    font-size: 25px;
+    margin-top: 40px;
+    width: 50%;
+    margin: auto;
+    text-align: end;
 }
 
 @media screen and (max-width: 1300px){
@@ -1104,6 +1120,14 @@ h1{
     .txt-par:nth-child(1) {
         padding-left: 0;
     }
+}
+
+@media screen and (max-width: 1000px){
+
+    #auteur {
+        width: 60%;
+    }
+    
 }
 
 @media screen and (max-width: 834px){
@@ -1125,6 +1149,30 @@ h1{
         font-size: 20px;
         margin: 20px 0px;
     }
+}
+
+@media screen and (max-width: 510px){
+
+    #proverbe {
+        font-size: 25px;
+    }
+    #auteur {
+        width: 70%;
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 305px){
+
+    #proverbe {
+        font-size: 20px;
+    }
+    #auteur {
+        width: 80%;
+        font-size: 15px;
+    }
+    
 }
 
 /* --- Section Contact ---- */
