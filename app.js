@@ -66,22 +66,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Animation CSS
 
-    const input_fields = document.querySelectorAll('input')
+    const input_fields = document.querySelectorAll('input');
+    let labels_form = document.getElementsByClassName('label-form');
 
     for(let i = 0; i < input_fields.length; i++) {
 
-        if (input_fields[i].value !== '') {
-            input_fields[i].parentNode.classList.add('animation')
-        }
-
         let field = input_fields[i];
 
+        //si un input n'est pas vide on donne à son parent la classe animation
+            if (field.value == '') {
+                field.parentNode.classList.remove('animation')
+            } else if (field.value !== '') {
+                field.parentNode.classList.add('animation')
+            }
+
+        //évenement input, s'il est vide son parent n'a pas de classe animation sinon il a la classe
         field.addEventListener('input', (e) => {
             if(e.target.value !== ''){
                 e.target.parentNode.classList.add('animation')
             } else if (e.target.value == ''){
                 e.target.parentNode.classList.remove('animation')
             }
+        })
+    }
+
+    for(let i = 0; i < labels_form.length; i++){
+
+        let label = labels_form[i];
+        //Lorsque le click à lieu sur le label nom ou prénom le focus va être donné à son input et l'animation CSS aura lieu
+        label.addEventListener('click', (e) => {
+
+            for(let j = 0; j < input_fields.length; j++) {
+                let field = input_fields[j];
+                if (i === j) {
+                    field.focus();
+                    console.log('ok');
+            }}
         })
     }
 
