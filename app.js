@@ -74,13 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let field = input_fields[i];
 
         //si un input n'est pas vide on donne à son parent la classe animation
+        //ce qui permet de ne pas retrouver un formulaire vide si on est redirigé
+        //vers celui-ci après l'avoir soumis si une erreur lors du traitement est
+        //trouvée
             if (field.value == '') {
                 field.parentNode.classList.remove('animation')
             } else if (field.value !== '') {
                 field.parentNode.classList.add('animation')
             }
 
-        //évenement input, s'il est vide son parent n'a pas de classe animation sinon il a la classe
+        //évenement input, s'il est vide son parent n'a pas de classe animation sinon on lui cette classe
         field.addEventListener('input', (e) => {
             if(e.target.value !== ''){
                 e.target.parentNode.classList.add('animation')
