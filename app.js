@@ -70,19 +70,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for(let i = 0; i < input_fields.length; i++) {
 
-    let field = input_fields[i];
-
-    field.addEventListener('input', (e) => {
-        if(e.target.value !== ''){
-            e.target.parentNode.classList.add('animation')
-        } else if (e.target.value == ''){
-            e.target.parentNode.classList.remove('animation')
+        if (input_fields[i].value !== '') {
+            input_fields[i].parentNode.classList.add('animation')
         }
-    })
 
+        let field = input_fields[i];
+
+        field.addEventListener('input', (e) => {
+            if(e.target.value !== ''){
+                e.target.parentNode.classList.add('animation')
+            } else if (e.target.value == ''){
+                e.target.parentNode.classList.remove('animation')
+            }
+        })
     }
+
 });
-// Anim GSAP + ScrollMagic
+
+
+    // Anim GSAP + ScrollMagic
 
     const navbar = document.querySelectorAll('.nav-gauche');
     const titre = document.querySelector('h1');
@@ -206,3 +212,5 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .setTween(tlCompetences)
     .addTo(controller)
+
+    // Gestion

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -10,8 +14,7 @@
         <title>Portfolio</title>
     </head>
     <body>
-
-        <!-- Btn flottant gauche petit menu -->
+     <!-- Btn flottant gauche petit menu -->
 
         <div class="btn-rond-menu">
             <div class="cont-ligne">
@@ -398,18 +401,18 @@
 
             <div class="container-form">
 
-                <form action="" class="form-bloc">
+                <form method="POST" action="process_mail.php" class="form-bloc">
 
                     <div class="form-groupe">
-                        <label for="prénom">Prénom</label>
-                        <input type="text" required maxlength="16" id="prenom">
+                        <label>Prénom</label>
+                        <input type="text" name="prenom" value="<?php echo $nom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : " " ?>"  required maxlength="16">
                     </div>
                     <div class="form-groupe">
-                        <label for="prénom">Nom</label>
-                        <input type="text" required maxlength="16" id="nom">
+                        <label>Nom</label>
+                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : " " ?>"   required maxlength="16">
                     </div>
                     <div class="form-groupe">
-                        <textarea name="" id="txt" placeholder="Votre message" required></textarea>
+                        <textarea name="message" id="txt" placeholder="Votre message" required><?php echo $nom = ($_SESSION['message']) ? $_SESSION['message'] : "Votre message" ?></textarea>
                     </div>
 
                     <div class="form-groupe">
@@ -417,6 +420,7 @@
                     </div>
                 </form>
             </div>
+
         </section>
 
         <footer>
