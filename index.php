@@ -275,7 +275,16 @@ require_once('db/display.php');
 
             <div class="grille-skill">
 
-                <div class="range-cont">
+                <?php
+                    $experiences = getPortfolioDatabaseHandler()->getAllWorkSkills();
+
+                    foreach ($experiences as $key => $experience){
+                        echo displayWorkSkills($experience, $key+1);
+                    }
+
+                ?>
+                
+                <!-- <div class="range-cont">
                     <p class="label-skill">JavaScript</p>
                     <p class="number-skill">75%</p>
                     <div class="barre-skill b1"></div>
@@ -315,7 +324,7 @@ require_once('db/display.php');
                     <p class="number-skill">60%</p>
                     <div class="barre-skill b6"></div>
                     <div class="barre-grises"></div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -330,26 +339,15 @@ require_once('db/display.php');
             <div class="cont-exp-travail">
 
                 <div class="barre-verticale">
-                    <!-- <div class="boule-ico">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="boule-ico">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <div class="boule-ico">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="boule-ico">
-                        <i class="fas fa-laptop"></i>
-                    </div> -->
+
                     <?php
-                $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
+                    $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
 
-                foreach ($experiences as $experience){
-                    echo displayBouleIcone($experience);
-                }
+                    foreach ($experiences as $experience){
+                        echo displayBouleIcone($experience);
+                    }
 
-            ?>
+                    ?>
                     <div class="boule-ico" id="boule-ico5">
                         <img src="ressources/plane.svg" alt="icône d'avion" class="avion">
                     </div>
@@ -358,38 +356,14 @@ require_once('db/display.php');
 
             <div class="flex-cont-bloc-exp" id="guidage">
             
-            <?php
-                $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
+                <?php
+                    $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
 
-                foreach ($experiences as $key => $experience){
-                    echo displayExperiences($experience, $key+1);
-                }
+                    foreach ($experiences as $key => $experience){
+                        echo displayExperiences($experience, $key+1);
+                    }
 
-            ?>
-                <!-- <div class="bloc bloc1">
-                    <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Willgo, <span class="date_exp date1">sept - nov 2020</span></p>
-                        <p class="txt-section">Développeur en stage pour cette agence web axée sur la création de sites via les CMS Wordpress et Prestashop. J'ai pu participer à divers sites mais également y préparer mon projet professionel me permettant de valider mon diplôme.</p>
-                    </div>
-                </div>
-                <div class="bloc bloc2">
-                    <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Alkas-Formation, <span class="date_exp date2">mars 2020 - janv. 2021</span></p>
-                        <p class="txt-section">Formation diplômante de 700 h en présentiel. Études de JavaScript, PHP, Angular, Symfony, SQL, architecture MEAN, sécurité, Agile, RGPD.. Le but étant de valider deux modules back et front devant un jury de professionnels.</p>
-                    </div>
-                </div>
-                <div class="bloc bloc3">
-                    <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Télévendeur, <span class="date_exp date3">févr. 2014 - juill. 2019</span></p>
-                        <p class="txt-section">Site internet spécialisé dans la vente immobilière entre particuliers. Mes missions étaient le conseil, la vente et la mise en place des contrats de diffusion.</p>
-                    </div>
-                </div>
-                <div class="bloc bloc4">
-                    <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Médiabat, <span class="date_exp date4">juin 2012 - févr. 2013</span></p>
-                        <p class="txt-section">Société conceptrice d'un logiciel de devis et factures pour les artisans du bâtiment. J'ai été chargé, après avoir travaillé au sein de l'effectif de téléprospection, de manager l'équipe.</p>
-                    </div>
-                </div> -->
+                ?>
             </div> 
         </div>
         </section>

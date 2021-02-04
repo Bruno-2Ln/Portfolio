@@ -34,4 +34,21 @@ function displayBouleIcone($experience){
     $icone);
 }
 
+function displayWorkSkills($workSkill, $key){
+
+    $signe = '%';
+
+    return sprintf(" 
+    <div class='range-cont'>
+        <p class='label-skill'>%s</p>
+        <p class='number-skill'>%d%s</p>
+        <div class='barre-skill b%d'></div>
+        <div class='barre-grises'></div>
+    </div>",
+    $workSkill->language,
+    $workSkill->percentage,
+    $signe,
+    $key);
+}
+
 ?>

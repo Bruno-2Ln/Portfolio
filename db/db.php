@@ -2,6 +2,7 @@
 require_once('connect_db.php');
 
 require_once('models/experience.php');
+require_once('models/workSkill.php');
 
 
 class DatabaseHandler{
@@ -51,6 +52,25 @@ class DatabaseHandler{
                 );
         }
         return $experiences;
+    }
+
+    public function getAllWorkSkills(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM work_skill");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $work_skills = [];
+        foreach ($res as $work_skill){
+            array_push(
+                $work_skills,
+                new WorkSkill(
+                    $work_skill->id,
+                    $work_skill->language,
+                    $work_skill->percentage)
+                );
+        }
+        return $work_skills;
     }
 
 }
