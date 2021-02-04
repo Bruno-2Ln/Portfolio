@@ -17,7 +17,7 @@ require_once('db/display.php');
         <title>Portfolio</title>
     </head>
     <body>
-     <!-- Btn flottant gauche petit menu -->
+    <!-- Btn flottant gauche petit menu -->
 
         <div class="btn-rond-menu">
             <div class="cont-ligne">
@@ -35,7 +35,18 @@ require_once('db/display.php');
                 </div>
 
             </div>
-            <div class="blocs-menu">
+
+            <?php
+
+            $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
+
+            foreach ($menuOptions as $menuOption) {
+
+                echo displayMenuOption($menuOption);
+            }
+
+            ?>
+            <!-- <div class="blocs-menu">
                 <span class="nav-menu-item">
                     <a href="#accueil">
                         Accueil
@@ -76,7 +87,7 @@ require_once('db/display.php');
                         Contact
                     </a>
                 </span>
-            </div>
+            </div> -->
 
 
 
@@ -151,7 +162,7 @@ require_once('db/display.php');
                             echo displayQuality($quality);
                         }
                         ?>
-                        
+
                     </ul>
                 </div>
 

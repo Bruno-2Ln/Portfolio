@@ -64,4 +64,19 @@ function displayQuality($quality){
     );
 }
 
+function displayMenuOption($menuOption){
+
+    return sprintf("
+        <div class='blocs-menu'>
+            <span class='nav-menu-item'>
+            <a href='#%s'>
+                %s
+            </a>
+            </span>
+        </div>",
+        $menuOption->href,
+        $menuOption->name
+    );
+}
+
 ?>

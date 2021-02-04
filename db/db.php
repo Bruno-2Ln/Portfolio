@@ -4,6 +4,7 @@ require_once('connect_db.php');
 require_once('models/experience.php');
 require_once('models/workSkill.php');
 require_once('models/quality.php');
+require_once('models/menu.php');
 
 class DatabaseHandler{
     private string $_dbname;
@@ -86,10 +87,31 @@ class DatabaseHandler{
                 new Quality(
                     $quality->id,
                     $quality->ranking,
-                    $quality->quality)
-                );
+                    $quality->quality
+                )
+            );
         }
         return $qualities;
+    }
+
+    public function getAllMenuOptions(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM menu");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $menuOptions = [];
+        foreach ($res as $menuOption){
+            array_push(
+                $menuOptions,
+                new MenuOption(
+                    $menuOption->id,
+                    $menuOption->href,
+                    $menuOption->name
+                )
+            );
+        }
+        return $menuOptions;
     }
 
 }
