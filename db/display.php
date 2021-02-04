@@ -34,7 +34,7 @@ function displayBouleIcone($experience){
     $icone);
 }
 
-function displayWorkSkills($workSkill, $key){
+function displayWorkSkill($workSkill, $key){
 
     $signe = '%';
 
@@ -49,6 +49,19 @@ function displayWorkSkills($workSkill, $key){
     $workSkill->percentage,
     $signe,
     $key);
+}
+
+function displayQuality($quality){
+
+    return sprintf(" 
+        <li class='item-list i%d'>
+            <span class='chiffre-style'>%d.</span>
+            <p class='txt-liste'>%s</p>
+        </li>",
+        $quality->ranking,
+        $quality->ranking,
+        $quality->quality,
+    );
 }
 
 ?>

@@ -3,7 +3,7 @@ require_once('connect_db.php');
 
 require_once('models/experience.php');
 require_once('models/workSkill.php');
-
+require_once('models/quality.php');
 
 class DatabaseHandler{
     private string $_dbname;
@@ -71,6 +71,25 @@ class DatabaseHandler{
                 );
         }
         return $work_skills;
+    }
+
+    public function getAllQualities(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM quality ORDER BY quality.ranking");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $qualities = [];
+        foreach ($res as $quality){
+            array_push(
+                $qualities,
+                new Quality(
+                    $quality->id,
+                    $quality->ranking,
+                    $quality->quality)
+                );
+        }
+        return $qualities;
     }
 
 }

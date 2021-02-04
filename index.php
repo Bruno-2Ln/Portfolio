@@ -143,31 +143,15 @@ require_once('db/display.php');
                 <div class="pres-droite">
                     <ul class="liste-presentation">
 
-                        <li class="item-list i1">
-                            <span class="chiffre-style">1.</span>
-                            <p class="txt-liste">Passionné</p>
-                        </li>
+                        <?php
+                        $qualities = getPortfolioDatabaseHandler()->getAllQualities();
 
-                        <li class="item-list i2">
-                            <span class="chiffre-style">2.</span>
-                            <p class="txt-liste">Curieux</p>
-                        </li>
+                        foreach ($qualities as $quality){
 
-                        <li class="item-list i3">
-                            <span class="chiffre-style">3.</span>
-                            <p class="txt-liste">Autonome</p>
-                        </li>
-
-                        <li class="item-list i4">
-                            <span class="chiffre-style">4.</span>
-                            <p class="txt-liste">Créatif</p>
-                        </li>
-
-                        <li class="item-list i5">
-                            <span class="chiffre-style">5.</span>
-                            <p class="txt-liste">Sociable</p>
-                        </li>
-
+                            echo displayQuality($quality);
+                        }
+                        ?>
+                        
                     </ul>
                 </div>
 
@@ -279,52 +263,10 @@ require_once('db/display.php');
                     $experiences = getPortfolioDatabaseHandler()->getAllWorkSkills();
 
                     foreach ($experiences as $key => $experience){
-                        echo displayWorkSkills($experience, $key+1);
+                        echo displayWorkSkill($experience, $key+1);
                     }
 
                 ?>
-                
-                <!-- <div class="range-cont">
-                    <p class="label-skill">JavaScript</p>
-                    <p class="number-skill">75%</p>
-                    <div class="barre-skill b1"></div>
-                    <div class="barre-grises"></div>
-                </div>
-
-                <div class="range-cont">
-                    <p class="label-skill">PHP</p>
-                    <p class="number-skill">65%</p>
-                    <div class="barre-skill b2"></div>
-                    <div class="barre-grises"></div>
-                </div>
-
-                <div class="range-cont">
-                    <p class="label-skill">Angular</p>
-                    <p class="number-skill">65%</p>
-                    <div class="barre-skill b3"></div>
-                    <div class="barre-grises"></div>
-                </div>
-
-                <div class="range-cont">
-                    <p class="label-skill">Symfony</p>
-                    <p class="number-skill">60%</p>
-                    <div class="barre-skill b4"></div>
-                    <div class="barre-grises"></div>
-                </div>
-
-                <div class="range-cont">
-                    <p class="label-skill">Bootstrap</p>
-                    <p class="number-skill">90%</p>
-                    <div class="barre-skill b5"></div>
-                    <div class="barre-grises"></div>
-                </div>
-
-                <div class="range-cont">
-                    <p class="label-skill">Wordpress</p>
-                    <p class="number-skill">60%</p>
-                    <div class="barre-skill b6"></div>
-                    <div class="barre-grises"></div>
-                </div> -->
 
             </div>
 
