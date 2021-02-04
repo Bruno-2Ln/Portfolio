@@ -1268,6 +1268,22 @@ h1{
     transition: 0.4s ease-out;
 }
 
+#captcha-div input{
+    width: 50%!important;
+}
+
+#code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+#code img{
+    width: 100%;
+    height: 80%;
+}
+
 textarea {
     width: 100%;
     height: 200px;
@@ -1280,6 +1296,7 @@ textarea {
     font-size: 20px;
     transition: 0.4s all ease-out;
     background: #f1f1f1;
+    margin-bottom: 20px;
 }
 
 textarea::placeholder {

@@ -1,9 +1,27 @@
 <?php
 session_start();
 error_reporting(0);
-
 require_once('db/db.php');
 require_once('db/display.php');
+require_once('function.php');
+
+$_SESSION["time_stamp"] = time();
+
+if (time() - $_SESSION["time_stamp"] )
+
+if ($_SESSION["email_max_time_stamp"]) {
+    if ($_SESSION["time_stamp"] - $_SESSION["email_max_time_stamp"] > 84000){
+        unset($_SESSION["nbr_email"]);
+        unset($_SESSION['email_max_time_stamp']);
+    }
+}
+
+if ($_SESSION["captcha_error_time_stamp"]) {
+    if ($_SESSION["time_stamp"] - $_SESSION["captcha_error_time_stamp"] > 84000){
+        unset($_SESSION["captcha_error"]);
+        unset($_SESSION['captcha_error_time_stamp']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +56,7 @@ require_once('db/display.php');
             </div>
 
             <?php
-
+            var_dump($_SESSION);
             $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
 
             foreach ($menuOptions as $menuOption) {
@@ -300,7 +318,7 @@ require_once('db/display.php');
 
                     <div class="form-groupe">
                         <label class="label-form">Prénom</label>
-                        <input type="text" name="prenom" value="<?php echo $nom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>"  required maxlength="16" pattern="^[A-Za-z '-]+$">
+                        <input type="text" name="prenom" value="<?php echo $prenom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>"  required maxlength="16" pattern="^[A-Za-z '-]+$">
                     </div>
                     <div class="form-groupe">
                         <label class="label-form">Nom</label>
@@ -308,10 +326,17 @@ require_once('db/display.php');
                     </div>
                     <div class="form-groupe">
                         <label class="label-form">Email</label>
-                        <input type="text" name="email" value="<?php echo $nom = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>"   required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
+                        <input type="text" name="email" value="<?php echo $email = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>"   required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
                     </div>
                     <div class="form-groupe">
                         <textarea name="message" id="txt" placeholder="Votre message" required><?php echo $nom = ($_SESSION['message']) ? $_SESSION['message'] : "" ?></textarea>
+                    </div>
+                    <div class="form-groupe" id="captcha-div">
+                        <label class="label-form">Captcha</label>
+                        <input type="text" name="captcha" required>
+                        <div id="code">
+                                    <img src="process_captcha.php" onclick="this.src='process_captcha.php?' + Math.random();" alt="captcha" style="cursor:pointer;"> 
+                        </div>
                     </div>
 
                     <div class="form-groupe">
