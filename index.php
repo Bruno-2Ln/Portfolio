@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 
 require_once('db/db.php');
 require_once('db/display.php');
@@ -46,51 +47,7 @@ require_once('db/display.php');
             }
 
             ?>
-            <!-- <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#accueil">
-                        Accueil
-                    </a>
-                </span>
-            </div>
-            <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#pres">
-                        Présentation
-                    </a>
-                </span>
-            </div>
-            <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#port">
-                        Portfolio
-                    </a>
-                </span>
-            </div>
-            <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#range">
-                        Compétences
-                    </a>
-                </span>
-            </div>
-            <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#exp">
-                        Expériences
-                    </a>
-                </span>
-            </div>
-            <div class="blocs-menu">
-                <span class="nav-menu-item">
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </span>
-            </div> -->
-
-
-
+            
             <div class="blocs-menu">
                 <div class="logo-cercle nav-menu-item">
                     <a href="#contact">
@@ -343,11 +300,15 @@ require_once('db/display.php');
 
                     <div class="form-groupe">
                         <label class="label-form">Prénom</label>
-                        <input type="text" name="prenom" value="<?php echo $nom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>"  required maxlength="16">
+                        <input type="text" name="prenom" value="<?php echo $nom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>"  required maxlength="16" pattern="^[A-Za-z '-]+$">
                     </div>
                     <div class="form-groupe">
                         <label class="label-form">Nom</label>
-                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>"   required maxlength="16">
+                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>"   required maxlength="16" pattern="^[A-Za-z '-]+$">
+                    </div>
+                    <div class="form-groupe">
+                        <label class="label-form">Email</label>
+                        <input type="text" name="email" value="<?php echo $nom = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>"   required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
                     </div>
                     <div class="form-groupe">
                         <textarea name="message" id="txt" placeholder="Votre message" required><?php echo $nom = ($_SESSION['message']) ? $_SESSION['message'] : "" ?></textarea>

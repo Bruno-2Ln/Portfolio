@@ -899,6 +899,10 @@ h1{
     color: #333;
 }
 
+.position {
+    color: rgb(78, 78, 78);
+}
+
 .cont-exp-travail {
     position: relative;
     display: flex;
