@@ -1,4 +1,8 @@
 <?php
+require_once('connect_db.php');
+
+require_once('models/experience.php');
+
 
 class DatabaseHandler{
     private string $_dbname;
@@ -25,6 +29,30 @@ class DatabaseHandler{
 
         $this->_handler = $dbh;
     }
+
+    public function getAllExperiences(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM experience");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $experiences = [];
+        foreach ($res as $experience){
+            array_push(
+                $experiences,
+                new Experience(
+                    $experience->id,
+                    $experience->entry_date,
+                    $experience->job,
+                    $experience->company,
+                    $experience->position,
+                    $experience->periode,
+                    $experience->description)
+                );
+        }
+        return $experiences;
+    }
+
 }
 
     ?>

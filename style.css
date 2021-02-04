@@ -798,14 +798,14 @@ h1{
 }
 
 .b1 {
-    width: 70%;
+    width: 75%;
 }
 .b2 {
     width: 65%;
     background: rgb(243,237,146);
 }
 .b3 {
-    width: 60%;
+    width: 65%;
     background: rgb(243,237,146);
 }
 .b4 {
@@ -1001,7 +1001,6 @@ h1{
     transform: translate(0,0);
 }
 
-
 .bloc1 {
     background: #fb97a0;
 }
@@ -1015,10 +1014,28 @@ h1{
     background: #d0e2ec;
 }
 
+.date1 {
+    color: #c9505a;
+}
+.date2 {
+    color: #7dd89a;
+}
+.date3 {
+    color: #50a5c7;
+}
+.date4 {
+    color: #7ebddf;
+}
+
 .titre-section-bloc {
     font-family: 'Abril Fatface', sans-serif;
     font-size: 25px;
     padding-bottom: 10px;
+}
+
+.date_exp {
+    font-style: italic;
+    font-size: 20px;
 }
 
 .txt-section {
@@ -1070,6 +1087,22 @@ h1{
     }
 }
 
+@media screen and (max-width: 338px) {
+
+    .titre-section-bloc {
+        font-size : 20px
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .barre-verticale {
+        height: 2000px;
+    }
+    .bloc {
+        height: 455px;
+    }
+}
 /* ------- Section Parallax -------*/
 
 .section-parallax {

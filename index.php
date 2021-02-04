@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+require_once('db/db.php');
+require_once('db/display.php');
 ?>
 
 <!DOCTYPE html>
@@ -274,7 +277,7 @@ session_start();
 
                 <div class="range-cont">
                     <p class="label-skill">JavaScript</p>
-                    <p class="number-skill">70%</p>
+                    <p class="number-skill">75%</p>
                     <div class="barre-skill b1"></div>
                     <div class="barre-grises"></div>
                 </div>
@@ -288,7 +291,7 @@ session_start();
 
                 <div class="range-cont">
                     <p class="label-skill">Angular</p>
-                    <p class="number-skill">60%</p>
+                    <p class="number-skill">65%</p>
                     <div class="barre-skill b3"></div>
                     <div class="barre-grises"></div>
                 </div>
@@ -327,7 +330,7 @@ session_start();
             <div class="cont-exp-travail">
 
                 <div class="barre-verticale">
-                    <div class="boule-ico">
+                    <!-- <div class="boule-ico">
                         <i class="fas fa-laptop"></i>
                     </div>
                     <div class="boule-ico">
@@ -338,38 +341,55 @@ session_start();
                     </div>
                     <div class="boule-ico">
                         <i class="fas fa-laptop"></i>
-                    </div>
+                    </div> -->
+                    <?php
+                $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
+
+                foreach ($experiences as $experience){
+                    echo displayBouleIcone($experience);
+                }
+
+            ?>
                     <div class="boule-ico" id="boule-ico5">
-                        <img src="ressources/plane.svg" alt="" class="avion">
+                        <img src="ressources/plane.svg" alt="icône d'avion" class="avion">
                     </div>
                 </div>
         
 
             <div class="flex-cont-bloc-exp" id="guidage">
-                <div class="bloc bloc1">
+            
+            <?php
+                $experiences = getPortfolioDatabaseHandler()->getAllExperiences();
+
+                foreach ($experiences as $key => $experience){
+                    echo displayExperiences($experience, $key+1);
+                }
+
+            ?>
+                <!-- <div class="bloc bloc1">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Willgo, sept - nov 2020</p>
+                        <p class="titre-section-bloc">Willgo, <span class="date_exp date1">sept - nov 2020</span></p>
                         <p class="txt-section">Développeur en stage pour cette agence web axée sur la création de sites via les CMS Wordpress et Prestashop. J'ai pu participer à divers sites mais également y préparer mon projet professionel me permettant de valider mon diplôme.</p>
                     </div>
                 </div>
                 <div class="bloc bloc2">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Alkas-Formation, mars 2020 - jan 2021</p>
+                        <p class="titre-section-bloc">Alkas-Formation, <span class="date_exp date2">mars 2020 - janv. 2021</span></p>
                         <p class="txt-section">Formation diplômante de 700 h en présentiel. Études de JavaScript, PHP, Angular, Symfony, SQL, architecture MEAN, sécurité, Agile, RGPD.. Le but étant de valider deux modules back et front devant un jury de professionnels.</p>
                     </div>
                 </div>
                 <div class="bloc bloc3">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Télévendeur, fev 2014 - juil 2019</p>
+                        <p class="titre-section-bloc">Télévendeur, <span class="date_exp date3">févr. 2014 - juill. 2019</span></p>
                         <p class="txt-section">Site internet spécialisé dans la vente immobilière entre particuliers. Mes missions étaient le conseil, la vente et la mise en place des contrats de diffusion.</p>
                     </div>
                 </div>
                 <div class="bloc bloc4">
                     <div class="contenu-bloc">
-                        <p class="titre-section-bloc">Médiabat, juin 2012 - fév 2013</p>
+                        <p class="titre-section-bloc">Médiabat, <span class="date_exp date4">juin 2012 - févr. 2013</span></p>
                         <p class="txt-section">Société conceptrice d'un logiciel de devis et factures pour les artisans du bâtiment. J'ai été chargé, après avoir travaillé au sein de l'effectif de téléprospection, de manager l'équipe.</p>
                     </div>
-                </div>
+                </div> -->
             </div> 
         </div>
         </section>
@@ -382,15 +402,6 @@ session_start();
             </p>
             <p id="auteur">Steve Jobs</p>
             </div>
-            <!-- <p class="txt-par">
-                842 tasses de thé
-            </p>
-            <p class="txt-par">
-                1252 " I love my job ! "
-            </p>
-            <p class="txt-par">
-                142 " error ??! "
-            </p> -->
         </section>
 
         <!-- Section Contact -->
