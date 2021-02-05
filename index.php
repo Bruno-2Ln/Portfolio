@@ -3,25 +3,6 @@ session_start();
 error_reporting(0);
 require_once('db/db.php');
 require_once('db/display.php');
-require_once('function.php');
-
-$_SESSION["time_stamp"] = time();
-
-if (time() - $_SESSION["time_stamp"] )
-
-if ($_SESSION["email_max_time_stamp"]) {
-    if ($_SESSION["time_stamp"] - $_SESSION["email_max_time_stamp"] > 84000){
-        unset($_SESSION["nbr_email"]);
-        unset($_SESSION['email_max_time_stamp']);
-    }
-}
-
-if ($_SESSION["captcha_error_time_stamp"]) {
-    if ($_SESSION["time_stamp"] - $_SESSION["captcha_error_time_stamp"] > 84000){
-        unset($_SESSION["captcha_error"]);
-        unset($_SESSION['captcha_error_time_stamp']);
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +17,38 @@ if ($_SESSION["captcha_error_time_stamp"]) {
         <title>Portfolio</title>
     </head>
     <body>
+
+        <?php
+        $_SESSION["time_stamp"] = time();
+
+        if (isset($_SESSION["email_max_time_stamp"]) && isset($_SESSION["time_stamp"])) {
+
+            if ($_SESSION["time_stamp"] - $_SESSION["email_max_time_stamp"] > 84000){
+
+                unset($_SESSION["nbr_email"]);
+                unset($_SESSION['email_max_time_stamp']);
+            }
+        }
+
+        if (isset($_SESSION["captcha_error_time_stamp"]) && isset($_SESSION["time_stamp"])) {
+            if ($_SESSION["time_stamp"] - $_SESSION["captcha_error_time_stamp"] > 84000){
+
+                unset($_SESSION["captcha_error"]);
+                unset($_SESSION['captcha_error_time_stamp']);
+            }
+        }
+
+        if (isset($_SESSION["captcha_one_error_time_stamp"]) && isset($_SESSION["time_stamp"])) {
+
+            if($_SESSION["time_stamp"] - $_SESSION["captcha_one_error_time_stamp"] > 84000){
+
+                unset($_SESSION["captcha_one_error_time_stamp"]);
+                unset($_SESSION["captcha_error"]);
+                unset($_SESSION["super"]);
+            }
+        }
+        ?>
+
     <!-- Btn flottant gauche petit menu -->
 
         <div class="btn-rond-menu">
@@ -56,9 +69,9 @@ if ($_SESSION["captcha_error_time_stamp"]) {
             </div>
 
             <?php
-            var_dump($_SESSION);
-            $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
 
+            $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
+        //var_dump($_SESSION);
             foreach ($menuOptions as $menuOption) {
 
                 echo displayMenuOption($menuOption);
@@ -335,7 +348,7 @@ if ($_SESSION["captcha_error_time_stamp"]) {
                         <label class="label-form">Captcha</label>
                         <input type="text" name="captcha" required>
                         <div id="code">
-                                    <img src="process_captcha.php" onclick="this.src='process_captcha.php?' + Math.random();" alt="captcha" style="cursor:pointer;"> 
+                            <img src="process_captcha.php" onclick="this.src='process_captcha.php?' + Math.random();" alt="captcha"> 
                         </div>
                     </div>
 
@@ -350,9 +363,8 @@ if ($_SESSION["captcha_error_time_stamp"]) {
         <footer>
             Tout Droits réservés &copy;
         </footer>
-
-
-
+        
+        <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>

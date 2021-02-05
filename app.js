@@ -236,4 +236,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .setTween(tlCompetences)
     .addTo(controller)
 
-    // Gestion
+    ////////////////////////////////

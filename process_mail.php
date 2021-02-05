@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//TODO : Mettre en place un effacement du nombre de mail et error_captcha de la session toutes les ?
 
 if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) && isset($_POST['email']) && isset($_POST['captcha'])){
 
@@ -33,6 +33,8 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) &
                             $_SESSION['message'] = '';
 
                             $_SESSION["nbr_email"] += 1;
+                            unset($_SESSION["captcha_one_error_time_stamp"]);
+                            unset($_SESSION["captcha_error"]);
                             if ($_SESSION["nbr_email"] === 3) {
                                 $_SESSION["email_max_time_stamp"] = time();
                             }
@@ -49,19 +51,21 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) &
                 }
             } else {
                 //TODO : captcha incorrect
+                if (!$_SESSION["captcha_one_error_time_stamp"]){
+                    $_SESSION["captcha_one_error_time_stamp"] = time();
+                }
+                
                 $_SESSION["captcha_error"] += 1;
-             if (!$_SESSION["captcha_error_time_stamp"] && $_SESSION["captcha_error"] === 5) {
+                if (!$_SESSION["captcha_error_time_stamp"] && $_SESSION["captcha_error"] === 5) {
 
-            $_SESSION["captcha_error_time_stamp"] = time();
-        }
+                    $_SESSION["captcha_error_time_stamp"] = time();
+                }
             }
         } else {
             //TODO : message informant que la limite du nombres de mails possibles est atteinte mais que je ne manquerai pas de répondre aux précédents très rapidemment.
-           
         }
     } else {
         //TODO : nombres de tentatives du captcha atteintes
-       
     }
 } else {
     //aucun message nécessaire car altération volontaire du formulaire
