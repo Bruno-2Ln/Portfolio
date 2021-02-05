@@ -5,6 +5,7 @@ require_once('models/experience.php');
 require_once('models/workSkill.php');
 require_once('models/quality.php');
 require_once('models/menu.php');
+require_once('models/project.php');
 
 class DatabaseHandler{
     private string $_dbname;

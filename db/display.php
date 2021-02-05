@@ -79,21 +79,51 @@ function displayMenuOption($menuOption){
     );
 }
 
-function displayProjectLittleWindow($project){
+function displayProjectLittleWindow($project, $key){
 //TODO : vague 1, 2 ect ..
     return sprintf("
         <div class='item vague1'>
             <div class='cont-img-port'>
                 <img src='ressources/%s' alt='image du projet'>
             </div>
+            <div class='body-modale'>
             <h3>%s</h3>
-            <p>%s</p>
-            <a href='%s' class='btn-projets'>Découvrez le projet</a>
+            <p>%s</p></div>
+            <div id='link-modal'>
+            <a href='%s' role='button' class='btn-projets' aria-haspopup='dialog' aria-controls='dialog%d'>Découvrez le projet</a></div>
         </div>",
         $project->image,
         $project->title,
-        $project->short_description,
-        $project->href);
+        $project->shortDescription,
+        $project->href,
+        $key);
+}
+
+function displayProjectModale($project, $key){
+
+    return sprintf("
+    <div role='dialog' modale-container='%d' id='dialog%d' aria-labelledby='dialog-title' aria-decribedby='dialog-desc' class='container-dialog' aria-modal='true' tabindex='-1' aria-hidden='true'>
+        <div role='document' class='container-dialog-box'>
+            <div id='dialog-header'>
+                <h2 id='dialog-title'>%s</h2>
+                
+                <button type='button' modale='%d' id='button-x' class='buttons-x' aria-label='Fermer' title='Fermer cette fenêtre' data-dismiss='dialog'>X</button>
+            </div>
+            <div>
+            <img id='image-modal' src='ressources/%s' alt='Image de présentation du projet'>
+            </div>
+            <p id='dialog-desc'>%s</p>
+            <a href='%s'>Lien github du projet</a>
+        </div>
+    </div>",
+    $key,
+    $key,
+    $project->title,
+    $key,
+    $project->image,
+    $project->description,
+    $project->href
+    );
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(1);
 require_once('db/db.php');
 require_once('db/display.php');
 ?>
@@ -17,6 +17,7 @@ require_once('db/display.php');
         <title>Portfolio</title>
     </head>
     <body>
+        <main id="js-document">
 
         <?php
         $_SESSION["time_stamp"] = time();
@@ -71,7 +72,7 @@ require_once('db/display.php');
             <?php
 
             $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
-        //var_dump($_SESSION);
+
             foreach ($menuOptions as $menuOption) {
 
                 echo displayMenuOption($menuOption);
@@ -165,13 +166,23 @@ require_once('db/display.php');
 
             <div class="cont-portfolio">
 
-                <div class="item vague1">
+                <?php
+
+                $projects = getPortfolioDatabaseHandler()->getAllProjects();
+
+                foreach ($projects as $key => $project){
+
+                    echo displayProjectLittleWindow($project, $key);
+                }
+
+                ?>
+                 <!-- <div class="item vague1">
                     <div class="cont-img-port">
                         <img src="ressources/bootstrap.jpg" alt="img portfolio">
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, reiciendis? Officia fuga nesciunt hic tempora?</p>
-                    <a href="#" class="btn-projets">Découvrez le projet</a>
+                    <a href="#" role="button" class="btn-projets" aria-haspopup="dialog" aria-controls="dialog1">Découvrez le projet</a>
                 </div>
 
                 <div class="item vague1">
@@ -244,7 +255,7 @@ require_once('db/display.php');
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, reiciendis? Officia fuga nesciunt hic tempora?</p>
                     <a href="#" class="btn-projets">Découvrez le projet</a>
-                </div>
+                </div>  -->
 
             </div>
 
@@ -360,10 +371,41 @@ require_once('db/display.php');
 
         </section>
 
+        
         <footer>
             Tout Droits réservés &copy;
         </footer>
-        
+
+    </main>
+            
+        <?php
+
+        $projects = getPortfolioDatabaseHandler()->getAllProjects();
+
+        foreach ($projects as $key => $project){
+
+            echo displayProjectModale($project, $key);
+        }
+
+        ?>
+
+            <!-- <div role="dialog" modal id="dialog1" aria-labelledby="dialog-title" aria-decribedby="dialog-desc" class="container-dialog" aria-modal="true" tabindex="-1" aria-hidden="true">
+                <div role="document" class="container-dialog-box">
+                    <div id="dialog-header">
+                        <h2 id="dialog-title">Titre Projet</h2>
+                        
+                        <button type="button" id="button-x" aria-label="Fermer" title="Fermer cette fenêtre" data-dismiss="dialog">X</button>
+                    </div>
+                    <div>
+                    <img id="image-modal" src="ressources/bootstrap.jpg" alt="Image de présentation du projet">
+                    </div>
+                    <p id="dialog-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla minus adipisci qui, ipsa magni laudantium eaque vitae rem sapiente odio corporis a voluptatum soluta, quas error placeat, officia veritatis deserunt consequatur quam delectus? Eius, ipsa? Velit nemo doloribus reiciendis, dolores itaque excepturi amet animi non laborum. At officia vero rerum?</p>
+                    <a href="#">Lien github du projet</a>
+                </div>
+            </div>  -->
+    
+
+
         <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>

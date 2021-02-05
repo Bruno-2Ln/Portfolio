@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     if(window.matchMedia('(max-width: 1300px)')){
+
         allItemNav.forEach(item => {
             item.addEventListener('click', () => {
                 nav.classList.toggle('menu-visible');
@@ -103,12 +104,87 @@ document.addEventListener("DOMContentLoaded", () => {
                 let field = input_fields[j];
                 if (i === j) {
                     field.focus();
-                    console.log('ok');
             }}
         })
     }
 
-});
+
+    //////////////////// Modale ////////////////////
+
+
+    //const mql = window.matchMedia("(max-width: 500px)");
+
+
+    const triggers = document.querySelectorAll("[aria-haspopup='dialog']");
+        const doc = document.getElementById('js-document');
+
+        //
+        //let btnProjets = document.getElementsByClassName('btn-projets')
+        //let modal
+
+        const open = function (dialog) {
+            dialog.setAttribute('aria-hidden', false);
+            doc.setAttribute('aria-hidden', true);
+            dialog.style.backgroundColor = ' rgba(0, 0, 0, 0.39)';
+        };
+        
+        const close = function (dialog) {
+            dialog.setAttribute('aria-hidden', true);
+            doc.setAttribute('aria-hidden', false);
+        };
+        /*let width = 0
+        function calculWidth() {
+            console.log(window.innerWidth);
+            width = window.innerWidth;
+            return width;
+        };
+
+        calculWidth();*/
+
+        triggers.forEach((trigger) => {
+            const dialog = document.getElementById(trigger.getAttribute('aria-controls'));
+            const dismissTriggers = dialog.querySelectorAll('[data-dismiss]');
+
+
+            /*mql.addEventListener("change", (e) => {
+            if (!e.matches){  
+                console.log("+de500")
+                calculWidth()
+                console.log(width)*/
+
+
+            //open dialog
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                open(dialog);
+            });
+
+            //close dialog
+            dismissTriggers.forEach((dismissTrigger) =>{
+                
+                let y = dismissTrigger.getAttribute('modale');
+
+                dismissTrigger.addEventListener('click', (event) => {
+
+                    const x = document.querySelectorAll('[modale-container]');
+                    event.preventDefault();
+                    close(x[y]);
+                });
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === dialog) {
+                    close(dialog);
+                }
+            });
+        
+    } /*else {
+        close(dialog);
+        console.log("-de500")
+    }
+});*/
+);
 
 
     // Anim GSAP + ScrollMagic
@@ -236,4 +312,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .setTween(tlCompetences)
     .addTo(controller)
 
-    ////////////////////////////////
+});
