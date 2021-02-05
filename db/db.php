@@ -114,6 +114,32 @@ class DatabaseHandler{
         return $menuOptions;
     }
 
+    public function getAllProjects(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM projet");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $projects = [];
+        foreach ($res as $project){
+            array_push(
+                $projects,
+                new Projet(
+                    $project->id,
+                    $project->title,
+                    $project->short_description,
+                    $project->description,
+                    $project->href,
+                    $project->image,
+                )
+            );
+        }
+        return $projects;
+    }
+
+
+
+
 }
 
     ?>

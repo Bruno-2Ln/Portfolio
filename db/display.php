@@ -79,4 +79,21 @@ function displayMenuOption($menuOption){
     );
 }
 
+function displayProjectLittleWindow($project){
+//TODO : vague 1, 2 ect ..
+    return sprintf("
+        <div class='item vague1'>
+            <div class='cont-img-port'>
+                <img src='ressources/%s' alt='image du projet'>
+            </div>
+            <h3>%s</h3>
+            <p>%s</p>
+            <a href='%s' class='btn-projets'>Découvrez le projet</a>
+        </div>",
+        $project->image,
+        $project->title,
+        $project->short_description,
+        $project->href);
+}
+
 ?>
