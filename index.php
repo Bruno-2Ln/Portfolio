@@ -100,17 +100,17 @@ require_once('db/display.php');
             <a href="#exp" class="btn-acc btn-acc2">Expériences</a>
 
             <div class="medias">
-                <a href="https://github.com" target="_blank">
+                <a href="https://github.com/Bruno-2Ln" target="_blank">
                     <div class="media media1">
                         <img src="ressources/github.svg" alt="github icone" class="icone-medias">
                     </div>
                 </a>
-                <a href="https://linkedin.com" target="_blank">
+                <a href="https://fr.linkedin.com/public-profile/in/bruno-delaine-4126131ab?challengeId=AQGubRNK28--TAAAAXd2nalqCSo6zA1H9RUlHHRg7Khcx6B6QlCkmlAQZNvQJSrNB-BtIDVoqT4Jbp6q0RdVf6shOspWoM7CqQ&submissionId=3fd3b52b-af1d-6116-21ff-09c8e2b1772a" target="_blank">
                     <div class="media media2">
                         <img src="ressources/linkedin.svg" alt="linkedin icone" class="icone-medias">
                     </div>
                 </a>
-                <a href="https://instagram.com" target="_blank">
+                <a href="https://www.instagram.com/touk0o0/" target="_blank">
                     <div class="media media3">
                         <img src="ressources/insta.svg" alt="instagram icone" class="icone-medias">
                     </div>

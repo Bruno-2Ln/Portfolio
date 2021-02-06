@@ -90,7 +90,7 @@ function displayProjectLittleWindow($project, $key){
             <h3>%s</h3>
             <p>%s</p></div>
             <div id='link-modal'>
-            <a href='%s' role='button' class='btn-projets' aria-haspopup='dialog' aria-controls='dialog%d'>Découvrez le projet</a></div>
+            <a href='%s' role='button' class='btn-projets' aria-haspopup='dialog' aria-controls='dialog%d'>En savoir plus</a></div>
         </div>",
         $project->image,
         $project->title,
@@ -113,7 +113,7 @@ function displayProjectModale($project, $key){
             <img id='image-modal' src='ressources/%s' alt='Image de présentation du projet'>
             </div>
             <p id='dialog-desc'>%s</p>
-            <a href='%s'>Lien github du projet</a>
+            <a href='%s' target='_blank'>Lien github du projet</a>
         </div>
     </div>",
     $key,
