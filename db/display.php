@@ -82,7 +82,7 @@ function displayMenuOption($menuOption){
 function displayProjectLittleWindow($project, $key){
 //TODO : vague 1, 2 ect ..
     return sprintf("
-        <div class='item vague1'>
+        <div class='item vague%d'>
             <div class='cont-img-port'>
                 <img src='ressources/%s' alt='image du projet'>
             </div>
@@ -92,6 +92,7 @@ function displayProjectLittleWindow($project, $key){
             <div id='link-modal'>
             <a href='%s' role='button' class='btn-projets' aria-haspopup='dialog' aria-controls='dialog%d'>En savoir plus</a></div>
         </div>",
+        $project->vague,
         $project->image,
         $project->title,
         $project->shortDescription,
