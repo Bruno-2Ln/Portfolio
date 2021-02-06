@@ -53,18 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .typeString('<span style="color: #f0c62a;"> Full-Stack</span> !')
     .start()
 
-    /*
-    let ico = document.getElementById("boule-ico5");
-    let guidage = document.getElementById("guidage");
-
-    if (innerWidth >= 950) {
-    guidage.addEventListener("mouseenter",(event) => {
-
-        ico.classList.add('boule-ico-anim')  
-    })
-
-    }*/
-
     // Animation CSS
 
     const input_fields = document.querySelectorAll('input');
@@ -111,79 +99,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //////////////////// Modale ////////////////////
 
-
-    //const mql = window.matchMedia("(max-width: 500px)");
-
-
     const triggers = document.querySelectorAll("[aria-haspopup='dialog']");
-        const doc = document.getElementById('js-document');
+    const doc = document.getElementById('js-document');
 
-        //
-        //let btnProjets = document.getElementsByClassName('btn-projets')
-        //let modal
+    const open = function (dialog) {
+        dialog.setAttribute('aria-hidden', false);
+        doc.setAttribute('aria-hidden', true);
+        dialog.style.backgroundColor = ' rgba(0, 0, 0, 0.39)';
+    };
+    
+    const close = function (dialog) {
+        dialog.setAttribute('aria-hidden', true);
+        doc.setAttribute('aria-hidden', false);
+    };
 
-        const open = function (dialog) {
-            dialog.setAttribute('aria-hidden', false);
-            doc.setAttribute('aria-hidden', true);
-            dialog.style.backgroundColor = ' rgba(0, 0, 0, 0.39)';
-        };
-        
-        const close = function (dialog) {
-            dialog.setAttribute('aria-hidden', true);
-            doc.setAttribute('aria-hidden', false);
-        };
-        /*let width = 0
-        function calculWidth() {
-            console.log(window.innerWidth);
-            width = window.innerWidth;
-            return width;
-        };
+    triggers.forEach((trigger) => {
+        const dialog = document.getElementById(trigger.getAttribute('aria-controls'));
+        const dismissTriggers = dialog.querySelectorAll('[data-dismiss]');
 
-        calculWidth();*/
+        //open dialog
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault();
 
-        triggers.forEach((trigger) => {
-            const dialog = document.getElementById(trigger.getAttribute('aria-controls'));
-            const dismissTriggers = dialog.querySelectorAll('[data-dismiss]');
+            open(dialog);
+        });
 
+        //close dialog
+        dismissTriggers.forEach((dismissTrigger) =>{
+            
+            let y = dismissTrigger.getAttribute('modale');
 
-            /*mql.addEventListener("change", (e) => {
-            if (!e.matches){  
-                console.log("+de500")
-                calculWidth()
-                console.log(width)*/
+            dismissTrigger.addEventListener('click', (event) => {
 
-
-            //open dialog
-            trigger.addEventListener('click', (event) => {
+                const x = document.querySelectorAll('[modale-container]');
                 event.preventDefault();
-
-                open(dialog);
+                close(x[y]);
             });
+        });
 
-            //close dialog
-            dismissTriggers.forEach((dismissTrigger) =>{
-                
-                let y = dismissTrigger.getAttribute('modale');
-
-                dismissTrigger.addEventListener('click', (event) => {
-
-                    const x = document.querySelectorAll('[modale-container]');
-                    event.preventDefault();
-                    close(x[y]);
-                });
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === dialog) {
-                    close(dialog);
-                }
-            });
+        window.addEventListener('click', (event) => {
+            if (event.target === dialog) {
+                close(dialog);
+            }
+        });
         
-    } /*else {
-        close(dialog);
-        console.log("-de500")
-    }
-});*/
+    } 
 );
 
 

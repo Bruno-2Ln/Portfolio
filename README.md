@@ -39,3 +39,8 @@
 ### PHP, par son utilisation mettre en place la logique d'exécution du projet. Une classe databaseHandler me permet d'y implémenter toutes mes méthodes renfermant mes CRUD (PDO et requètes préparées). Les données récupérées sont ainsi converties en objets manipulables PHP et sont utilisés en paramètre de fonction propre à leur affichage. Cette convertion peut se faire par la mise en place de modèles (classes) PHP reflétant chacune d'entre elle une table de la base de données relationnelle.
 ### Ce langage me permet également l'implémentation d'un captcha, à partir de fonctions PHP, sur le formulaire, sa validation et l'envoi du mail par la fonction mail().
 
+##  Extraits de code :
+
+* ### Back :
+
+<img src="ressources/extrait1" width="400" alt="extrait de la méthode getAllExpérience()">
