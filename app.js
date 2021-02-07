@@ -113,6 +113,23 @@ document.addEventListener("DOMContentLoaded", () => {
         doc.setAttribute('aria-hidden', false);
     };
 
+
+    // Gestion de l'ouverture et fermeture d'une fenêtre modale réagissant aux actions du formulaire
+    const modale_message = document.getElementById("dialog");
+
+    if(modale_message){
+        open(modale_message);
+        const closeButton = modale_message.querySelector('[data-dismiss]');
+
+        console.log(closeButton);
+        closeButton.addEventListener('click', (event) => {
+
+            event.preventDefault();
+            close(modale_message);
+        });
+    }
+
+
     triggers.forEach((trigger) => {
         const dialog = document.getElementById(trigger.getAttribute('aria-controls'));
         const dismissTriggers = dialog.querySelectorAll('[data-dismiss]');
@@ -127,13 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
         //close dialog
         dismissTriggers.forEach((dismissTrigger) =>{
             
-            let y = dismissTrigger.getAttribute('modale');
+            let modale = dismissTrigger.getAttribute('modale');
 
             dismissTrigger.addEventListener('click', (event) => {
 
-                const x = document.querySelectorAll('[modale-container]');
+                const modale_container = document.querySelectorAll('[modale-container]');
                 event.preventDefault();
-                close(x[y]);
+                close(modale_container[modale]);
             });
         });
 

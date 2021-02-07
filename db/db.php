@@ -6,6 +6,7 @@ require_once('models/workSkill.php');
 require_once('models/quality.php');
 require_once('models/menu.php');
 require_once('models/project.php');
+require_once('models/message.php');
 
 class DatabaseHandler{
     private string $_dbname;
@@ -137,6 +138,27 @@ class DatabaseHandler{
             );
         }
         return $projects;
+    }
+
+    public function getAllMessages(){
+
+        $stmt = $this->_handler->prepare("SELECT * FROM message");
+
+        $stmt->execute();
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $messages = [];
+        foreach ($res as $message){
+            array_push(
+                $messages,
+                new Message(
+                    $message->id,
+                    $message->title,
+                    $message->variable_session,
+                    $message->text,
+                )
+            );
+        }
+        return $messages;
     }
 
 

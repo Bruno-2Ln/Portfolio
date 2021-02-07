@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(1);
+error_reporting(0);
 require_once('db/db.php');
 require_once('db/display.php');
 ?>
@@ -71,8 +71,8 @@ require_once('db/display.php');
 
             <?php
 
+            $messages = getPortfolioDatabaseHandler()->getAllMessages();
             $menuOptions = getPortfolioDatabaseHandler()->getAllMenuOptions();
-
             foreach ($menuOptions as $menuOption) {
 
                 echo displayMenuOption($menuOption);
@@ -307,8 +307,16 @@ require_once('db/display.php');
             echo displayProjectModale($project, $key);
         }
 
-        ?>
+        $messages = getPortfolioDatabaseHandler()->getAllMessages();
 
+        foreach ($messages as $message){
+            if ($_SESSION[$message->variable_session]){
+                echo displayMessageModale($message);
+                unset($_SESSION[$message->variable_session]);
+            }
+            
+        }
+        ?>
         <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>

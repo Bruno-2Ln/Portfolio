@@ -130,4 +130,22 @@ function displayProjectModale($project, $key){
     );
 }
 
+function displayMessageModale($message){
+
+    return sprintf("
+    <div role='dialog' modale-container='0' id='dialog' aria-labelledby='dialog-title' aria-decribedby='dialog-desc' class='container-dialog' aria-modal='true' tabindex='-1' aria-hidden='true'>
+        <div role='document' id='container-dialog-box' class='container-dialog-box'>
+            <div id='dialog-header'>
+                <h2 id='dialog-title'>%s</h2>
+                
+                <button type='button' modale='0' id='button-x' class='buttons-x' aria-label='Fermer' title='Fermer cette fenêtre' data-dismiss='dialog'>X</button>
+            </div>
+            <p id='dialog-desc'>%s</p>
+        </div>
+    </div>",
+    $message->title,
+    $message->text,
+    );
+}
+
 ?>

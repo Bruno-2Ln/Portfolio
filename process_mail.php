@@ -33,24 +33,30 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) &
                             $_SESSION['message'] = '';
 
                             $_SESSION["nbr_email"] += 1;
+                            //-------------------------
+                            $_SESSION["message_envoye"] = true;
+                            //-------------------------
                             unset($_SESSION["captcha_one_error_time_stamp"]);
                             unset($_SESSION["captcha_error"]);
                             if ($_SESSION["nbr_email"] === 3) {
                                 $_SESSION["email_max_time_stamp"] = time();
+                                $_SESSION["message_max_mail"] = true;
                             }
-                            //TODO : message de réussite de l'envoie
 
                         } else {
-                                //TODO : problème lors de l'envoie message invitant à une nouvelle tentative ou à me recontacter via linkedin si le problème persiste
+
+                                $_SESSION["probleme_technique"] = true;
                         }   
                     } else {
-                        //TODO : message informant d'un mauvais remplissage du formulaire
+
+                        $_SESSION["message_non_conforme"] = true;
                     }
                 } else {
-                    //TODO : message informant d'une zone vide du formulaire
+
+                    $_SESSION["message_zone_vide"] = true;
                 }
             } else {
-                //TODO : captcha incorrect
+
                 if (!$_SESSION["captcha_one_error_time_stamp"]){
                     $_SESSION["captcha_one_error_time_stamp"] = time();
                 }
@@ -60,15 +66,24 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) &
 
                     $_SESSION["captcha_error_time_stamp"] = time();
                 }
+
+                if ($_SESSION["captcha_error"] != 5){
+
+                    $_SESSION["message_captcha_error"] = true;
+
+                } else {
+                    $_SESSION["message_captcha_error_max"] = true;
+                }
+
             }
         } else {
-            //TODO : message informant que la limite du nombres de mails possibles est atteinte mais que je ne manquerai pas de répondre aux précédents très rapidemment.
+            $_SESSION["message_max_mail"] = true;
         }
     } else {
-        //TODO : nombres de tentatives du captcha atteintes
+        $_SESSION["message_captcha_error_max"] = true;
     }
 } else {
-    //aucun message nécessaire car altération volontaire du formulaire
+
 }
 
 header('Location: index.php');

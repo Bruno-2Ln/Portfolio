@@ -1484,3 +1484,8 @@ footer {
     }
 }
 
+#container-dialog-box {
+    border: 3px solid #333;
+    background: #f1f1f1;
+}
+
