@@ -49,7 +49,7 @@
 <img src="ressources/extrait1.png" width="400" alt="extrait de la méthode getAllExpérience()">
 
  * La fonction d'affichage d'un objet Experience va prendre un paramètre
-<img src="ressources/extrait2.png" width="400" alt="extrait de la fonction displayExperience()">
+<img src="ressources/extrait2.png" width="800" alt="extrait de la fonction displayExperience()">
 
  * Un foreach va ensuite permettre pour chaque objet Expérience du tableau récupéré, d'appeler la fonction d'affichage
- <img src="ressources/extrait3.png" width="400" alt="extrait des appels des méthode et fonction permettant l'affichage des expériences">
+ <img src="ressources/extrait3.png" width="600" alt="extrait des appels des méthode et fonction permettant l'affichage des expériences">
