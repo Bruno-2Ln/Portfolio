@@ -114,7 +114,10 @@ function displayProjectModale($project, $key){
             <img id='image-modal' src='ressources/%s' alt='Image de présentation du projet'>
             </div>
             <p id='dialog-desc'>%s</p>
-            <a href='%s' target='_blank'>Lien github du projet</a>
+            <div class='container-link'>
+
+            <a href='%s' target='_blank' class='github-link'><i class='fab fa-github'></i> Lien github du projet</a>
+            </div>
         </div>
     </div>",
     $key,
