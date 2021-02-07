@@ -1455,31 +1455,27 @@ footer {
     border-radius: 4px;
     border: 2px solid #333;
     color: #333
-  }
-  
-  .github-link:link {
+}
+
+.github-link:link {
     color: #333;
-  }
-  
-  .github-link:visited {
+}
+
+.github-link:visited {
     color: #333;
-  }
-  
-  .github-link:focus {
+}
+
+.github-link:focus {
     border-bottom: 1px solid;
     background: #f1f1f1;
     color: #333;
-  }
-  
-  .github-link:hover {
+}
+
+.github-link:hover {
     border-bottom: 1px solid;
     background: #333;
     color: #f1f1f1;
-  }
-  
-  .github-link:active {
-    
-  }
+}
 
 @Media (max-width: 500px) {
     .container-dialog{
