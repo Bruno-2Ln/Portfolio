@@ -118,7 +118,7 @@ class DatabaseHandler{
 
     public function getAllProjects(){
 
-        $stmt = $this->_handler->prepare("SELECT * FROM projet");
+        $stmt = $this->_handler->prepare("SELECT * FROM projet ORDER BY order_apparition");
 
         $stmt->execute();
         $res = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -128,6 +128,7 @@ class DatabaseHandler{
                 $projects,
                 new Projet(
                     $project->id,
+                    $project->order_apparition,
                     $project->title,
                     $project->short_description,
                     $project->description,

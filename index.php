@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+error_reporting(1);
 require_once('db/db.php');
 require_once('db/display.php');
 ?>

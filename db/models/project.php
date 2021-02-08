@@ -3,6 +3,7 @@
 class Projet{
 
     public $id;
+    public $orderApparition;
     public $title;
     public $shortDescription;
     public $description;
@@ -12,9 +13,10 @@ class Projet{
     public $link;
     public $icone;
 
-    public function __construct(int $id, string $title, string $shortDescription, string $description, string $href, string $image, int $vague, string $link, string $icone){
+    public function __construct(int $id, int $orderApparition, string $title, string $shortDescription, string $description, string $href, string $image, int $vague, string $link, string $icone){
         
         $this->id = $id;
+        $this->orderApparition = $orderApparition;
         $this->title = $title;
         $this->shortDescription = $shortDescription;
         $this->description = $description;
