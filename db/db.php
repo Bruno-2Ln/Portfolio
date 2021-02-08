@@ -133,7 +133,9 @@ class DatabaseHandler{
                     $project->description,
                     $project->href,
                     $project->image,
-                    $project->vague
+                    $project->vague,
+                    $project->link,
+                    $project->icone
                 )
             );
         }

@@ -116,7 +116,7 @@ function displayProjectModale($project, $key){
             <p id='dialog-desc'>%s</p>
             <div class='container-link'>
 
-            <a href='%s' target='_blank' class='github-link'><i class='fab fa-github'></i> Lien github du projet</a>
+            <a href='%s' target='_blank' class='github-link'><i class='%s'></i> %s</a>
             </div>
         </div>
     </div>",
@@ -126,7 +126,9 @@ function displayProjectModale($project, $key){
     $key,
     $project->image,
     $project->description,
-    $project->href
+    $project->href,
+    $project->icone,
+    $project->link
     );
 }
 
