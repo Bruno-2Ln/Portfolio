@@ -17,7 +17,9 @@ if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['message']) &
             
                 if (!empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['message']) && !empty($_POST['email'])) {
 
-                    if (preg_match("/^[A-Za-z '-]+$/", $_POST['prenom']) && preg_match("/^[A-Za-z '-]+$/", $_POST['nom']) && preg_match("/[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/", $_POST['email'])) {
+                    if (preg_match("/^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$/", $_POST['prenom']) 
+                    && preg_match("/^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$/", $_POST['nom']) 
+                    && preg_match("/[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/", $_POST['email'])) {
 
                         $dest = "bruno-d-34@hotmail.fr";
                         $object = "Contact Portfolio";

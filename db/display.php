@@ -14,7 +14,7 @@ function displayExperiences($experience, $key = null){
         $experience->position,
         $key,
         $experience->periode,
-        $experience->description);
+        $experience->description );
 
 }
 

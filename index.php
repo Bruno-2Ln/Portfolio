@@ -14,11 +14,11 @@ require_once('db/display.php');
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap" rel="stylesheet">
-        <title>Portfolio</title>
+        <title>Bruno Delaine - Portfolio</title>
     </head>
     <body>
         <main id="js-document">
-
+        
         <?php
         $_SESSION["time_stamp"] = time();
 
@@ -262,15 +262,15 @@ require_once('db/display.php');
 
                     <div class="form-groupe">
                         <label class="label-form">Prénom</label>
-                        <input type="text" name="prenom" value="<?php echo $prenom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>"  required maxlength="16" pattern="^[A-Za-z '-]+$">
+                        <input type="text" name="prenom" value="<?php echo $prenom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
                     </div>
                     <div class="form-groupe">
                         <label class="label-form">Nom</label>
-                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>"   required maxlength="16" pattern="^[A-Za-z '-]+$">
+                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
                     </div>
                     <div class="form-groupe">
                         <label class="label-form">Email</label>
-                        <input type="text" name="email" value="<?php echo $email = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>"   required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
+                        <input type="text" name="email" value="<?php echo $email = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>" required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
                     </div>
                     <div class="form-groupe">
                         <textarea name="message" id="txt" placeholder="Votre message" required><?php echo $nom = ($_SESSION['message']) ? $_SESSION['message'] : "" ?></textarea>

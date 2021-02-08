@@ -24,11 +24,11 @@ class DatabaseHandler{
 
     public function connect(){
         try {
-            $dbh = new PDO("mysql:host=localhost;charset=utf8;dbname={$this->_dbname}", $this->_adminname, $this->_password, [PDO::ATTR_EMULATE_PREPARES => false]);
+            $dbh = new PDO("mysql:host=brunodpbdliz.mysql.db;charset=utf8;dbname={$this->_dbname}", $this->_adminname, $this->_password, [PDO::ATTR_EMULATE_PREPARES => false]);
         } catch (PDOException $e){
 
             http_response_code(500);
-            die("500 - Internal Server Error");
+            die("500 - Internal Server Error !");
         }
 
         $this->_handler = $dbh;
