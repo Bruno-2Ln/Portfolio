@@ -10,6 +10,9 @@ require_once('db/display.php');
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Bruno Delaine, développeur web basé à Montpellier. Je vous présente par le biais de mon portfolio, des informations sur mes projets, mes compétences et expériences ainsi que ma personnalité">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -261,23 +264,23 @@ require_once('db/display.php');
                 <form method="POST" action="process_mail.php" class="form-bloc">
 
                     <div class="form-groupe">
-                        <label class="label-form">Prénom</label>
-                        <input type="text" name="prenom" value="<?php echo $prenom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
+                        <label class="label-form" for="prenom">Prénom</label>
+                        <input type="text" name="prenom" id="prenom" value="<?php echo $prenom = ($_SESSION['prenom']) ? $_SESSION['prenom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
                     </div>
                     <div class="form-groupe">
-                        <label class="label-form">Nom</label>
-                        <input type="text" name="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
+                        <label class="label-form" for="nom">Nom</label>
+                        <input type="text" name="nom" id="nom" value="<?php echo $nom = ($_SESSION['nom']) ? $_SESSION['nom'] : "" ?>" required maxlength="16" pattern="^[A-Za-z 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ -]+$">
                     </div>
                     <div class="form-groupe">
-                        <label class="label-form">Email</label>
-                        <input type="text" name="email" value="<?php echo $email = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>" required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
+                        <label class="label-form" for="email">Email</label>
+                        <input type="text" name="email" id="email" value="<?php echo $email = ($_SESSION['email']) ? $_SESSION['email'] : "" ?>" required maxlength="30"  pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
                     </div>
                     <div class="form-groupe">
                         <textarea name="message" id="txt" placeholder="Votre message" required><?php echo $nom = ($_SESSION['message']) ? $_SESSION['message'] : "" ?></textarea>
                     </div>
                     <div class="form-groupe" id="captcha-div">
-                        <label class="label-form">Captcha</label>
-                        <input type="text" name="captcha" required>
+                        <label class="label-form" for="captcha">Captcha</label>
+                        <input type="text" name="captcha" id="captcha" required>
                         <div id="code">
                             <img src="process_captcha.php" onclick="this.src='process_captcha.php?' + Math.random();" alt="captcha"> 
                         </div>
@@ -324,5 +327,6 @@ require_once('db/display.php');
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
         <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
         <script src="app.js"></script>
+        <noscript>Your browser does not support JavaScript!</noscript>
     </body>
 </html>
